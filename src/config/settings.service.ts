@@ -1,4 +1,4 @@
-import {Injectable} from "@nestjs/common";
+import {Injectable} from "@nestjs/common"
 
 @Injectable()
 export class SettingsService {
@@ -10,5 +10,9 @@ export class SettingsService {
 
     getDelays() {
         return this.settings
+    }
+
+    getDelay(url: string) {
+        return this.settings.get(url.substr(1))
     }
 }

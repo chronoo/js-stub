@@ -1,5 +1,5 @@
-import {Body, ClassSerializerInterceptor, Controller, Get, Param, Post, UseInterceptors} from "@nestjs/common";
-import {SettingsService} from "./settings.service";
+import {Body, ClassSerializerInterceptor, Controller, Get, Param, Post, UseInterceptors} from "@nestjs/common"
+import {SettingsService} from "./settings.service"
 
 @Controller('settings')
 export class SettingsController {
