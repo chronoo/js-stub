@@ -1,6 +1,8 @@
-import {Injectable, NestMiddleware} from "@nestjs/common"
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor, NestMiddleware } from '@nestjs/common';
 import {SettingsService} from "./settings.service"
 import {NextFunction} from "express"
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class RequestDelay implements NestMiddleware {
@@ -17,3 +19,9 @@ export class RequestDelay implements NestMiddleware {
     }
 }
 
+@Injectable()
+export class TransformInterceptor<T> implements NestInterceptor<T, any> {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    return next.handle().pipe(map(data => ({ data })));
+  }
+}

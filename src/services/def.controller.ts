@@ -1,4 +1,4 @@
-import {ClassSerializerInterceptor, Controller, Get, UseInterceptors} from "@nestjs/common"
+import { ClassSerializerInterceptor, Controller, Get, UseInterceptors } from '@nestjs/common';
 
 @Controller("def")
 export class DefController {
@@ -12,3 +12,4 @@ export class DefController {
         }
     }
 }
+
